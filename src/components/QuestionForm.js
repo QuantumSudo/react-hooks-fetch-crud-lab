@@ -1,3 +1,4 @@
+// src/components/QuestionForm.js
 import React, { useState } from "react";
 
 function QuestionForm(props) {
@@ -20,6 +21,8 @@ function QuestionForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
+    // You can call the props.createQuestion function here to submit the form
+    props.createQuestion(formData);
   }
 
   return (
@@ -77,6 +80,7 @@ function QuestionForm(props) {
             name="correctIndex"
             value={formData.correctIndex}
             onChange={handleChange}
+            data-testid="correct-answer-dropdown"  // Added data-testid here
           >
             <option value="0">{formData.answer1}</option>
             <option value="1">{formData.answer2}</option>
